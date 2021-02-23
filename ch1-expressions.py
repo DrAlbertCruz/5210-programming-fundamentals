@@ -1,8 +1,9 @@
 import random
 
-NUM_QUESTIONS = 20
+NUM_QUESTIONS = 10
 
 def createExpression():
+	startedPar = False
 	string = str(random.randint(1,5)) + " ";
 	for x in range(random.randint(1,3)):
 		# Append a random connective
@@ -36,6 +37,6 @@ for x in range (NUM_QUESTIONS):
 	while result > 1000 or result < 0: # Dont give out questions where the result is some insanely large number
 		question = createExpression()
 		result = eval(question)
-	f.write( "::Question " + str(x) + "::[html]<p>What is the result of the following Python expression\: " + question + "? <em>Evalute these by hand first, then confirm their correctness by inputting the expression into the Python interpeter</em></p>{#" + str(result) + "}\n\n" )
+	f.write( "::Question " + str(x) + "::[html]<p>What is the result of the following Python expression\: " + question + "? <em>Evaluate these by hand first, then confirm their correctness by inputting the expression into the Python interpreter</em></p>{#" + str(result) + "}\n\n" )
 
 f.close()
